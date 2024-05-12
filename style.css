@@ -72,27 +72,25 @@ body{
 .comment-div{
     margin-top: 10px;
     display: flex;
+    gap: 4px;
 }
 .comment{
     flex-grow: 1;
     border: none;
-    background: #DFD9E2;
     color: #182825 ;
-    padding: 0 20px;
-    font-size: 16px;
+    padding: 0 10px;
+    font-size: 14px;
     border-radius: 6px 0 0 6px;
+    border: 4px solid #DFD9E2;
 }
 .comment-div button{
     border: none;
-    background: #6E7E85;
+    background: #2ea4d67e;
     padding: 10px 20px;
     border-radius: 0 6px 6px 0;
-    color: #DFD9E2;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 14px;
 }
 .comment-div button:hover{
-    background: black;
-    color: #FFF;
     cursor: pointer;
 }
