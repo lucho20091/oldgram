@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
     <title>Oldgram</title>
 </head>
 <body>
@@ -72,14 +75,14 @@
                 <p>240 likes</p>
                 <p><span class="bold">Gus2024 </span>I'm feeling a bit stressed tbh</p>
                 <div class="divider"></div>
-                <div class="comment-section" id="comment-section"></div>
+                <div class="comment-section" id="comment-section2"></div>
                 <div class="comment-div">
                     <input 
                     type="text" 
                     class="comment"
-                    id="input-comment"
+                    id="input-comment2"
                     placeholder="Leave a comment">
-                    <button id="send-comment">Send</button>
+                    <button id="send-comment2">Send</button>
                 </div>
             </div>
         </div>
@@ -106,18 +109,33 @@
                 <p>499 likes</p>
                 <p><span class="bold">jd2313 </span>gm friends! which coin are You stacking up today??</p>
                 <div class="divider"></div>
-                <div class="comment-section" id="comment-section"></div>
+                <div class="comment-section" id="comment-section3"></div>
                 <div class="comment-div">
                     <input 
                     type="text" 
                     class="comment"
-                    id="input-comment"
+                    id="input-comment3"
                     placeholder="Leave a comment">
-                    <button id="send-comment">Send</button>
+                    <button id="send-comment3">Send</button>
                 </div>
             </div>
         </div>
     </main>
+    <div class="modal" id="modal">
+        <div class="container">
+                <img src="./images/logo.png" class="logo" alt="this is the logo">
+        </div>
+        <form>
+            <label for="username">Create Account</label>
+            <input 
+            type="text"
+            class="username"
+            id="username"
+            name="username"
+            placeholder="username">
+            <button id="sign in">Sign In</button>
+        </form>
+    </div>
     <footer>
 
     </footer>
