@@ -29,7 +29,6 @@ body{
 .flex p{
     font-size: 25px;
     font-weight: 600;
-    color: #9395D3;
 }
 .flex p:hover{
     cursor: pointer;
@@ -216,6 +215,9 @@ main, header{
     .container{
         width: 80%;
     }
+    .border{
+        width: 100%;
+    }
     .logo{
         width: 100px;
     }
@@ -237,9 +239,9 @@ main, header{
 
     }
     .username p{
-        font-size: 15px;
+        font-size: 16px;
     }
     .username p:last-child{
-        font-size: 12px;
+        font-size: 14px;
     }
 }   
