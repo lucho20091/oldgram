@@ -76,7 +76,7 @@ sendCommentBtn.addEventListener('click', () =>{
         comment: inputComment.value,
         html: "commentSection"
     }
-    if (!inputComment.value === ''){
+    if (!inputComment.value == ''){
         push(oldgramInDB, myObj)
     }
     inputComment.value = '';
@@ -90,7 +90,7 @@ sendCommentBtn2.addEventListener('click', () =>{
         comment: inputComment2.value,
         html: "commentSection2"
     }
-    if (!inputComment2.value === ''){
+    if (!inputComment2.value == ''){
     push(oldgramInDB, myObj2)
     }
     inputComment2.value = '';
@@ -104,7 +104,8 @@ sendCommentBtn3.addEventListener('click', () =>{
         comment: inputComment3.value,
         html: "commentSection3"
     }
-    if (!inputComment3.value === ''){
+    console.log(myObj3)
+    if (!inputComment3.value == ''){
     push(oldgramInDB, myObj3)
     }
     inputComment3.value = '';
@@ -137,6 +138,8 @@ onValue(oldgramInDB, function(snapshot){
         //     arrayValues.push(itemsArray[i][1].comment)
         // }
         // console.log(arrayValues)
+    } else {
+        push(oldgramInDB, 'hello') //
     }
 })
 
@@ -163,7 +166,8 @@ function appendComments(item, commentSectionEl){
         deleteBtn.addEventListener('click', () => {
             let exactLocationOfItem = ref(database, `oldgram/${itemID}`);
             const text = `Are you sure you want to delete this comment? \n
-            ${itemName} ${itemComment}`
+            username: ${itemName} \n
+            text content: ${itemComment}`
             if (confirm(text)){
                 remove(exactLocationOfItem)
             }
