@@ -27,6 +27,35 @@ const profileUser = document.getElementById('profile-user');
 // close sesion btn and modal
 const closeBtn = document.getElementById('close-sesion');
 const closeModal = document.getElementById('modal-close-sesion');
+// get like element
+const likeHeart = document.getElementById('like-heart');
+const likeHeart2 = document.getElementById('like-heart2');
+const likeHeart3 = document.getElementById('like-heart3');
+// get all image
+const postImage = document.getElementById('post-image');
+const postImage2 = document.getElementById('post-image2');
+const postImage3 = document.getElementById('post-image3');
+
+// like logic
+likeHeart.addEventListener('click', () => {
+    likeHeart.classList.toggle('active');
+})
+// click on the images like
+postImage.addEventListener('dblclick', likeHandler)
+postImage2.addEventListener('dblclick', likeHandler2)
+postImage3.addEventListener('dblclick', likeHandler3)
+
+function likeHandler(){
+    likeHeart.classList.toggle('active');
+}
+
+function likeHandler2(){
+    likeHeart2.classList.toggle('active');
+}
+
+function likeHandler3(){
+    likeHeart3.classList.toggle('active');
+}
 
 // setting up firebase 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"

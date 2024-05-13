@@ -73,11 +73,21 @@ body{
     user-select: none;
 }
 .like-icons{
+    display: flex;
+    gap: 4px;
     margin: 10px 0 0;
     user-select: none;
 }
-.like-icons img{
-    width: 25px;
+.like-icons i{
+    font-size: 20px;
+    font-weight: 400;
+}
+.like-icons i:hover{
+    cursor: pointer;
+}
+.like-icons .active i{
+    font-weight: 600;
+    color: red;
 }
 .people-comments p {
     margin: 3px 0;
