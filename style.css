@@ -248,4 +248,7 @@ main, header{
         top: 75px;
         right: 10px;
     }
+    .modal{
+        width: 100%;
+    }
 }   
