@@ -251,6 +251,10 @@ profileUser.addEventListener('click', () => {
     closeModal.classList.toggle('hidden')
 });
 
+usernameName.addEventListener('click', () => {
+    closeModal.classList.toggle('hidden')
+});
+
 closeBtn.addEventListener('click', () => {
     localStorage.removeItem('username')
     window.location.reload();
