@@ -16,20 +16,30 @@ body{
 .logo{
     width: 150px;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .flex{
     display: flex;
     gap: 5px;
+    justify-content: space-around;
     align-items: center;
 }
 .flex p{
     font-size: 25px;
     font-weight: 600;
-
-
+    color: #9395D3;
+}
+.flex p:hover{
+    cursor: pointer;
 }
 .user {
     width: 45px;
     border-radius: 50%;
+}
+.user:hover{
+    cursor: pointer;
+    background: #9395D3;
 }
 .avatar {
     width: 45px;
@@ -151,4 +161,18 @@ body{
 main, header{
     display: none;
     /* display: block; */
+}
+.flex-comment{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-comment button{
+    border: none;
+    background: #E87461;
+    border-radius: 5px;
+}
+.flex-comment button:hover{
+    cursor: pointer;
 }
