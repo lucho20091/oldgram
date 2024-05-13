@@ -211,3 +211,35 @@ main, header{
 .hidden{
     display: none;
 }
+
+@media (max-width:700px)  { 
+    .container{
+        width: 80%;
+    }
+    .logo{
+        width: 100px;
+    }
+    .flex p{
+        font-size: 22px;
+    }
+    .user{
+        width: 30px;
+    }
+    .avatar{
+        width: 30px;
+    }
+    .container2{
+        padding: 0;
+        width: 80%;
+    }
+    .image img{
+        width: 100%;
+
+    }
+    .username p{
+        font-size: 15px;
+    }
+    .username p:last-child{
+        font-size: 12px;
+    }
+}   
