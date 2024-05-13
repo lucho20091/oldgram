@@ -194,16 +194,18 @@ main, header{
 .modal-close-sesion{
     display: block;
     position: absolute;
-    right: 40%;
+    right: 0;
+    left: 0;
+    margin: auto;
     top: 80px;
-    width: auto;
+    width: 415px;
     height: auto;
 }
 .flex-modal-close{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    height: 100%;
+
 }
 .flex-modal-close button {
     border: none;
@@ -255,8 +257,7 @@ main, header{
     }
     .modal-close-sesion{
         position: absolute;
-        top: 75px;
-        right: 10px;
+        width: 80%;
     }
     .modal{
         width: 100%;
