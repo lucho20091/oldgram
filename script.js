@@ -15,11 +15,24 @@ const nameFromLocalStorage = JSON.parse(localStorage.getItem('username'))
 const modal = document.getElementById('modal');
 const signInBtn = document.getElementById('sign-in');
 const username = document.getElementById('username');
+// get main
+const main = document.querySelector('main');
+const header = document.querySelector('header');
+// get username name
+const usernameName = document.getElementById('username-name');
 
 signInBtn.addEventListener('click', () => {
-    localStorage.setItem('username', username.value)
+    localStorage.setItem('username', JSON.stringify(username.value))
 })
+// logic when user created account
+if (nameFromLocalStorage){
+    modal.style.display = 'none'
+    header.style.display = 'block'
+    main.style.display = 'block'
+    usernameName.textContent = nameFromLocalStorage
+}
 
+console.log(nameFromLocalStorage) 
 sendCommentBtn.addEventListener('click', () =>{
     commentSection.innerHTML += `
     <p>${inputComment.value}</p>`

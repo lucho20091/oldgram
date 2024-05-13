@@ -16,9 +16,19 @@ body{
 .logo{
     width: 150px;
 }
+.flex{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.flex p{
+    font-size: 25px;
+    font-weight: 600;
 
+
+}
 .user {
-    width: 50px;
+    width: 45px;
     border-radius: 50%;
 }
 .avatar {
