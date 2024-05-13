@@ -12,6 +12,7 @@ const inputComment3 = document.getElementById('input-comment3');
 // get localstorage item
 const nameFromLocalStorage = JSON.parse(localStorage.getItem('username'))
 const idFromLocalStorage = JSON.parse(localStorage.getItem('id'))
+const name2FromLocalStorage = JSON.parse(localStorage.getItem('username2'))
 // get modal
 const modal = document.getElementById('modal');
 const signInBtn = document.getElementById('sign-in');
@@ -19,8 +20,14 @@ const username = document.getElementById('username');
 // get main
 const main = document.querySelector('main');
 const header = document.querySelector('header');
-// get username name
+// get username element
 const usernameName = document.getElementById('username-name');
+// get profile 
+const profileUser = document.getElementById('profile-user');
+// close sesion btn and modal
+const closeBtn = document.getElementById('close-sesion');
+const closeModal = document.getElementById('modal-close-sesion');
+
 // setting up firebase 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
@@ -32,9 +39,22 @@ const database = getDatabase(app)
 const oldgramInDB = ref(database, "oldgram")
 // sign in send username to localStorage
 signInBtn.addEventListener('click', () => {
-    localStorage.setItem('username', JSON.stringify(username.value))
-    const random = Math.floor(Math.random() * 10000 )
-    localStorage.setItem('id', JSON.stringify(random))
+    if (username.value === name2FromLocalStorage){
+        localStorage.setItem('username', JSON.stringify(username.value))
+    } else if (idFromLocalStorage){
+        let message = 'you already have an account, would you like to create a new account?'
+        if (confirm(message)){
+            localStorage.setItem('username', JSON.stringify(username.value))
+            const random = Math.floor(Math.random() * 10000 )
+            localStorage.setItem('id', JSON.stringify(random))
+            localStorage.setItem('username2', JSON.stringify(username.value))
+        }
+    } else {
+        localStorage.setItem('username', JSON.stringify(username.value))
+        const random = Math.floor(Math.random() * 10000 )
+        localStorage.setItem('id', JSON.stringify(random))
+        localStorage.setItem('username2', JSON.stringify(username.value))
+    }
 })
 // logic when user created account
 if (nameFromLocalStorage){
@@ -42,7 +62,7 @@ if (nameFromLocalStorage){
     header.style.display = 'block'
     main.style.display = 'block'
     usernameName.textContent = nameFromLocalStorage
-}
+} 
 
 
 
@@ -98,7 +118,7 @@ onValue(oldgramInDB, function(snapshot){
         clearCommentSections(commentSection, commentSection2, commentSection3)
         
         for (let i = 0; i < itemsArray.length; i++){
-            console.log(itemsArray[i][1].comment)
+            // console.log(itemsArray[i][1].comment)
             let currentItem = itemsArray[i]
             // let currentItemComment = itemsArray[i][1].comment
             // let currentItemName = itemsArray[i][1].name
@@ -131,14 +151,33 @@ function appendComments(item, commentSectionEl){
     let itemComment = item[1].comment
     let itemName = item[1].name
     let itemUserID = item[1].id
-
+    // console.log(itemID)
     let newEl = document.createElement('div')
     newEl.className = 'flex-comment'
     newEl.innerHTML = `
     <p><span class="bold">${itemName}</span> ${itemComment}</p>`
-    if (itemUserID === idFromLocalStorage){
-        newEl.innerHTML += `<button id="delete-btn">Delete</button>
-        </div>`
-    }
     commentSectionEl.append(newEl)
+    if (itemUserID === idFromLocalStorage){
+        let deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'delete'
+        deleteBtn.addEventListener('click', () => {
+            let exactLocationOfItem = ref(database, `oldgram/${itemID}`);
+            const text = `Are you sure you want to delete this comment? \n
+            ${itemName} ${itemComment}`
+            if (confirm(text)){
+                remove(exactLocationOfItem)
+            }
+        })
+        newEl.append(deleteBtn)
+        }
 }
+
+profileUser.addEventListener('click', () => {
+    closeModal.classList.toggle('hidden')
+});
+
+closeBtn.addEventListener('click', () => {
+    localStorage.removeItem('username')
+    window.location.reload();
+
+})
