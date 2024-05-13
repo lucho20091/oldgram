@@ -35,11 +35,38 @@ const likeHeart3 = document.getElementById('like-heart3');
 const postImage = document.getElementById('post-image');
 const postImage2 = document.getElementById('post-image2');
 const postImage3 = document.getElementById('post-image3');
-
+// get p for likes
+const likes1 = document.getElementById('likes1');
+const likes2 = document.getElementById('likes2');
+const likes3 = document.getElementById('likes3');
 // like logic
 likeHeart.addEventListener('click', () => {
     likeHeart.classList.toggle('active');
+    if (likeHeart.classList.contains('active')){
+        likes1.innerHTML = `${nameFromLocalStorage} and 200 likes`
+    } else {
+        likes1.innerHTML = `200 likes`
+    }
 })
+
+likeHeart2.addEventListener('click', () => {
+    likeHeart2.classList.toggle('active');
+    if (likeHeart2.classList.contains('active')){
+        likes2.innerHTML = `${nameFromLocalStorage} and 200 likes`
+    } else {
+        likes2.innerHTML = `200 likes`
+    }
+})
+
+likeHeart3.addEventListener('click', () => {
+    likeHeart3.classList.toggle('active');
+    if (likeHeart3.classList.contains('active')){
+        likes3.innerHTML = `${nameFromLocalStorage} and 200 likes`
+    } else {
+        likes3.innerHTML = `200 likes`
+    }
+})
+
 // click on the images like
 postImage.addEventListener('dblclick', likeHandler)
 postImage2.addEventListener('dblclick', likeHandler2)
@@ -47,14 +74,29 @@ postImage3.addEventListener('dblclick', likeHandler3)
 
 function likeHandler(){
     likeHeart.classList.toggle('active');
+    if (likeHeart.classList.contains('active')){
+        likes1.innerHTML = `${nameFromLocalStorage} and 200 likes`
+    } else {
+        likes1.innerHTML = `200 likes`
+    }
 }
 
 function likeHandler2(){
     likeHeart2.classList.toggle('active');
+    if (likeHeart2.classList.contains('active')){
+        likes2.innerHTML = `${nameFromLocalStorage} and 240 likes`
+    } else {
+        likes2.innerHTML = `240 likes`
+    }
 }
 
 function likeHandler3(){
     likeHeart3.classList.toggle('active');
+    if (likeHeart3.classList.contains('active')){
+        likes3.innerHTML = `${nameFromLocalStorage} and 499 likes`
+    } else {
+        likes3.innerHTML = `499 likes`
+    }
 }
 
 // setting up firebase 
